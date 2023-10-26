@@ -1,8 +1,16 @@
-# Vue 3 + Vite
+# TodoApp
+This website consists of two sections, sideذbar and body.
+The body consists of 4 routes
+1: Todo list
+2: Notebox
+3: News (the information of this section is received from Firebase)
+4: Upgrade user account
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-## Recommended IDE Setup
+## Build Setup
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-# todo
+# install dependencies
+$ npm install
+
+# serve with hot reload at localhost:3000
+$ npm run dev

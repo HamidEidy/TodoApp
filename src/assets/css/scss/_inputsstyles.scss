@@ -1,0 +1,50 @@
+.inputs {
+  padding: 5px 10px;
+  max-width: 100%;
+  display: flex;
+ align-items: center;
+}
+
+.checkmark {
+  accent-color: $bold-blue;
+  width: 20px;
+  height: 20px;
+  clip-path: circle(62% at 50% 50%);
+}
+
+label {
+  font-size: 16px;
+font-weight: bold;
+  padding-left: 10px;
+  color: $main-grey;
+}
+
+/* Style the checkmark/indicator */
+.inputs:hover {
+  @extend .basichover;
+  background-color: rgba(219, 217, 217, 0.303);
+
+  
+}
+
+#placehold {
+  border: none;
+  font-weight: bolder;
+  font-size: large;
+  color: rgb(167, 162, 162);
+  background-color: rgba(255, 255, 255, 0.248);
+  width: 100%;
+  height: 40px;
+  padding-left: 20px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+#placehold:hover {
+  cursor: pointer;
+  background-color: #eff0f2;
+  transition: 0.5s;
+}
+#placehold:focus {
+  outline: none;
+}

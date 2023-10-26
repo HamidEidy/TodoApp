@@ -1,0 +1,167 @@
+#note {
+    #addnotebox {
+        .modal-content {
+
+            background-color: $bold-blue;
+            height: fit-content;
+            padding-bottom: 4%;
+            float: left;
+            margin: 12% 20%;
+            text-align: center;
+            width: 60%;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                #title {
+                    font-size: 30px;
+                    font-family: "Courier New", Courier, monospace;
+                    font-weight: 900;
+                    margin: 30px 0px;
+                    color: #ffffff;
+                }
+                label {
+                    font-size: 20px;
+                    font-family: "Courier New", Courier, monospace;
+                    color: #ffffff;
+                }
+                input,
+                textarea {
+                    width: 100%;
+                    padding: 5px 10px;
+                    margin-bottom: 15px;
+                }
+                .addbtn {
+                    background-color: #ebf4fc;
+                    color: $bold-blue;
+                    border-radius: 20px;
+                    padding: 5px 10px;
+                }
+                .addbtn:hover {
+                    cursor: pointer;
+                    box-shadow: 0px 12px 28px 0px rgba(140, 149, 159, 0.3);
+                }
+            }
+            #closeaddnotebox {
+                position: absolute;
+                right: 0;
+                margin-right: -46px;
+                font-size: 30px;
+            }
+            #closeaddnotebox:hover {
+                cursor: pointer;
+                color: $bold-red;
+            }
+        }
+    }
+    #notesbody {
+    
+        #title {
+            padding-bottom: 5px;
+            border-bottom: 2px solid $border-color;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+
+            h6 {
+                font-size: 20px;
+                font-weight: bolder;
+            }
+        }
+        .addbtn {
+            width: 150px;
+            font-size: 16px;
+            background-color: $pale-blue;
+            color: $bold-blue;
+            border: none;
+            border-radius: 20px;
+            padding: 5px 10px;
+        }
+        #contents {
+            max-width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            #notebox {
+                margin: 5px;
+                height: 200px;
+                overflow: auto;
+                width: calc(97% / 3);
+                border-radius: 10px;
+                position: relative;
+                border: 1px solid $bold-blue;
+                overflow-x: hidden;
+                #notehead {
+                    display: flex;
+                    padding: 5px 10px;
+                    justify-content: space-between;
+                    background-color: $bold-blue;
+                }
+                #titletext,
+                #deletenote {
+                    font-size: 30px;
+                    color: white;
+                }
+                #deletenote:hover {
+                    cursor: pointer;
+                    color: $bold-red;
+                }
+                #body {
+                    color: $bold-blue;
+                    padding: 5px 10px;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 35rem) {
+#note{
+    height: 100vh;
+}
+#addnotebox {
+    .modal-content {
+   
+    margin-top: 60% !important;
+   .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            #title {
+                font-size: 18px !important;
+
+            }
+            label {
+                font-size: 15px !important;
+            }
+            input,
+            textarea {
+                margin-bottom: 25px !important;
+                font-size: 12px;
+            }
+            .addbtn {
+                background-color: #ebf4fc;
+                color: $bold-blue;
+                border-radius: 20px;
+                padding: 5px 0px !important;
+                font-size: 12px;
+                margin-left: -.8%;
+            }
+        }
+        #closeaddnotebox {
+
+            font-size: 20px !important;
+        }
+    }
+}
+    #notesbody {
+        #notebox {
+            min-width: 98%;
+            height: 150px;
+
+        }
+
+
+    }
+}

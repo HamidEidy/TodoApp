@@ -1,0 +1,706 @@
+/* start css reset codes */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+main, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, main, menu, nav, section {
+  display: block;
+}
+
+/* HTML5 hidden-attribute fix for newer browsers */
+*[hidden] {
+  display: none;
+}
+
+body {
+  font-family: monospace;
+  line-height: 1;
+}
+
+menu, ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* end css reset codes */
+/*this color has been used in the sidebar*/
+/*this color has been used in the sidebar*/
+.inputs {
+  padding: 6px 0px;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.checkmark {
+  accent-color: #208EFE;
+  width: 25px;
+  height: 25px;
+  clip-path: circle(62% at 50% 50%);
+}
+
+label {
+  font-size: 20px;
+  padding-left: 10px;
+  color: #45494F;
+}
+
+/* Style the checkmark/indicator */
+.inputs:hover {
+  background-color: rgba(219, 217, 217, 0.598);
+}
+
+#placehold {
+  border: none;
+  font-weight: bolder;
+  font-size: large;
+  color: rgb(167, 162, 162);
+  width: 100%;
+  height: 40px;
+  padding-left: 20px;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+#placehold:hover {
+  cursor: pointer;
+  background-color: #eff0f2;
+  transition: 0.5s;
+}
+
+#placehold:focus {
+  outline: none;
+}
+
+.basichover, .learninghover:hover, .personalhover:hover, .projecthover:hover, .inputs:hover {
+  cursor: pointer;
+  border-radius: 12px;
+  transition: 0.4s;
+}
+
+.sidebar {
+  position: relative;
+  border-right: 2px solid rgb(194, 188, 188);
+}
+
+.sidelink {
+  display: flex;
+  align-self: baseline;
+  padding: 0.625rem;
+  width: 12vw;
+}
+.sidelink :hover {
+  cursor: pointer;
+}
+
+.projecthover:hover {
+  color: #208EFE;
+  background-color: #ECF6FF;
+}
+
+.personalhover:hover {
+  color: #8AC54B;
+  background-color: #E4F6D1;
+}
+
+.learninghover:hover {
+  color: #FF4B44;
+  background-color: #FFE8EA;
+}
+
+.sidebaroptions {
+  padding: 1vh 0vw 2vh 2vw;
+}
+.sidebaroptions ion-icon {
+  color: #45494F;
+  font-size: 1.2rem;
+  margin-right: 1vw;
+}
+.sidebaroptions p {
+  color: #45494F;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.sidebaroptions h6 {
+  font-size: 1.2rem;
+  font-weight: 900;
+  margin: 0vh 0vw 1vh 1vw;
+  padding-left: 1.2vw;
+}
+.sidebaroptions .projects {
+  color: #208EFE;
+}
+.sidebaroptions .personal {
+  color: #8AC54B;
+}
+.sidebaroptions .learning {
+  color: #FF4B44;
+}
+
+.buttons {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+#addicon {
+  font-size: 3.5vw;
+  color: #208EFE;
+  margin: 5vh 0vw 0vh 5.5vw;
+  position: absolute;
+  bottom: 20;
+  right: 40%;
+}
+
+#close-circle {
+  color: #FF4B44;
+  font-size: 1.87rem;
+  padding: 1vh 0vw 0vh 1vw;
+}
+
+#remove-circle {
+  color: #FFC022;
+  font-size: 1.87rem;
+  padding-top: 1vh;
+}
+
+#ellipsis-horizontal {
+  font-size: 1.87rem;
+  padding: 1vh 1vw 0vh 0vw;
+}
+
+#roadmap {
+  padding: 4.5vh 0vw 1.2vh 7vh;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+#designmenu {
+  display: flex;
+  justify-content: space-between;
+  padding: 1vh 3.3vw 1vh 3.1vw;
+  align-items: center;
+}
+
+#designlogo {
+  font-size: 3.125rem;
+  font-weight: bolder;
+}
+
+#filterlink button {
+  background: none;
+  border: none;
+  padding: 0.31rem 0.93rem;
+  font-weight: bold;
+}
+
+.routlink {
+  padding-left: 1.25rem;
+  border-bottom: 2px solid rgb(194, 188, 188);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.routlink button {
+  color: #208EFE;
+  background-color: #ECF6FF;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+}
+.routlink a {
+  text-decoration: none;
+  padding: 1.25rem 1.56rem;
+  font-weight: bold;
+  color: rgb(42, 42, 42);
+}
+
+#activefilter {
+  background-color: #208EFE !important;
+  border-radius: 15px;
+  color: #fff;
+}
+
+.activenav {
+  border-bottom: 3px solid #208EFE;
+}
+
+#everdo {
+  color: #208EFE;
+}
+
+#endbutton {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 40px;
+  bottom: 0px;
+}
+#endbutton ion-icon {
+  width: 1.4vw;
+  height: 3vh;
+  margin: 0vh 0.1vw;
+  padding: 10px;
+  border-radius: 20px;
+}
+#endbutton ion-icon :hover {
+  cursor: pointer;
+}
+#endbutton #btn1 {
+  background-color: #e4f6d1;
+  color: #8ac54b;
+}
+#endbutton #btn2 {
+  background-color: #ffe8ea;
+  color: #ff4b44;
+}
+#endbutton #btn4 {
+  background-color: #fcedff;
+  color: #da86eb;
+}
+#endbutton #btn5 {
+  background-color: #e1faf4;
+  color: #7cd9c4;
+}
+#endbutton #btn6 {
+  background-color: #eaeffc;
+  color: #5d7ad4;
+}
+#endbutton #btn7 {
+  background-color: #ffdfc6;
+  color: #ff9f6e;
+}
+#endbutton #addtask {
+  background-color: #ECF6FF;
+  color: #208EFE;
+}
+
+.filecomponent {
+  padding: 2vh 5vw !important;
+}
+
+.Assets {
+  border-bottom: 2px solid rgb(194, 188, 188);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 1vh 0vw;
+}
+.Assets p {
+  display: inline;
+  font-size: 1.5rem;
+  position: absolute;
+  padding: 1.6vh 0vw 0vh 1vw;
+  font-weight: 400;
+}
+.Assets :hover {
+  cursor: pointer;
+}
+
+.Inspiration {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid rgb(194, 188, 188);
+  padding: 1vh 0vw;
+}
+.Inspiration :hover {
+  cursor: pointer;
+}
+.Inspiration p {
+  font-size: 1.5rem;
+  display: inline;
+  font-size: 1.5rem;
+  position: absolute;
+  padding: 1.6vh 0vw 0vh 1vw;
+  font-weight: 400;
+}
+
+.foldericon {
+  color: #208EFE;
+  font-size: 3rem;
+}
+
+.titletext {
+  border-bottom: 2px solid rgb(194, 188, 188);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 1vh;
+}
+
+.titletext h6 {
+  font-size: 1.5rem;
+}
+
+.inputs {
+  padding: 6px 0px;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.checkmark {
+  accent-color: #208EFE;
+  width: 25px;
+  height: 25px;
+  clip-path: circle(62% at 50% 50%);
+}
+
+label {
+  font-size: 20px;
+  padding-left: 10px;
+  color: #45494F;
+}
+
+/* Style the checkmark/indicator */
+.inputs:hover {
+  background-color: rgba(219, 217, 217, 0.598);
+}
+
+#placehold {
+  border: none;
+  font-weight: bolder;
+  font-size: large;
+  color: rgb(167, 162, 162);
+  width: 100%;
+  height: 40px;
+  padding-left: 20px;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+#placehold:hover {
+  cursor: pointer;
+  background-color: #eff0f2;
+  transition: 0.5s;
+}
+
+#placehold:focus {
+  outline: none;
+}
+
+.parent {
+  padding: 0px !important;
+}
+.parent .optionone {
+  padding: 1vh 5vw;
+}
+.parent .productplanning {
+  padding: 1vh 5vw;
+}
+.parent .design {
+  padding: 1vh 5vw;
+}
+.parent .titletext {
+  border-bottom: 2px solid rgb(194, 188, 188);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.parent #ellipsis-horizontal {
+  color: rgb(194, 188, 188);
+}
+.parent h6 {
+  font-size: 25px;
+  font-weight: bolder;
+}
+.parent .complet {
+  padding: 10px 0px 1px 0px;
+  max-width: 100%;
+  display: flex;
+  align-items: baseline;
+}
+.parent .complet ion-icon {
+  color: blue;
+  font-size: 30px;
+  font-weight: 800;
+  position: absolute;
+}
+.parent .complet .container {
+  display: block;
+  padding: 6px 0px 0px 45px;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: line-through;
+  color: rgb(121, 118, 118);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  max-width: 100%;
+  /* Hide the browser's default checkbox */
+}
+
+.disappear {
+  display: none;
+}
+
+.messages {
+  background-color: #f5f7f7;
+  height: fit-content;
+  position: relative;
+  margin-bottom: 1.5vh;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+.messages .seenalert {
+  background-color: #FF4B44;
+  display: inline;
+  padding: 6px;
+  color: aliceblue;
+  font-weight: bold;
+  position: absolute;
+  top: -10px;
+  left: -20px;
+  border-radius: 10px;
+  border: 6px solid white;
+}
+.messages .text {
+  padding: 35px 10px 30px 10px;
+}
+
+.title {
+  margin: 4vh 5vw;
+  padding-bottom: 5px;
+  border-bottom: 2px solid rgb(194, 188, 188);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.title h6 {
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.deletebtn {
+  background-color: #FFE8EA;
+  color: #FF4B44;
+  padding: 5px 10px;
+  border-radius: 20px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 10px 10px 0px 0px;
+}
+
+.deletebtn:hover {
+  background-color: #f44336;
+  color: #f1f1f1;
+}
+
+.addbtn {
+  width: 150px;
+  background-color: #ECF6FF;
+  color: #208EFE;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+
+.addbtn:hover {
+  cursor: pointer;
+}
+
+.contents {
+  display: flex;
+  margin: 1vh 5vw;
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.contents .notebox {
+  height: 250px;
+  overflow: auto;
+  width: 33.3333333333%;
+  background-color: #fafafa;
+  border-radius: 20px;
+  padding: 60px 50px;
+  position: relative;
+}
+.contents .notebox span {
+  font-size: 0.8rem;
+  font-weight: bolder;
+  position: absolute;
+}
+.contents .notebox span2 {
+  font-size: 1.1rem;
+  position: absolute;
+  padding-top: 6px;
+}
+.contents .label {
+  width: 4rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.parone {
+  font-size: 2rem;
+  padding-top: 4vh;
+}
+
+.partwo {
+  font-size: 1.1rem;
+  line-height: 3vh;
+}
+
+.label {
+  background-color: #e1e2e5;
+  float: right;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.notebox:hover {
+  background-color: #ebf4fc;
+  color: #1b8bfd;
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+  padding: 60px;
+  /* The Modal (background) */
+  /* Modal Content/Box */
+  /* Close button on hover */
+  /* Bordered form */
+  /* Full-width inputs */
+  /* Add Zoom Animation */
+}
+.modal label {
+  display: block;
+  font: 1rem "Fira Sans", sans-serif;
+}
+.modal input,
+.modal label {
+  margin: 0.4rem 0;
+  width: 100%;
+}
+.modal .modal-content {
+  background-color: #fefefe;
+  margin: 5px auto;
+  /* 15% from the top and centered */
+  border: 1px solid #888;
+  width: 80%;
+  /* Could be more or less, depending on screen size */
+  /* Add padding to containers */
+  /* The Close Button */
+}
+.modal .modal-content .container {
+  padding: 16px;
+}
+.modal .modal-content .close {
+  /* Position it in the top right corner outside of the modal */
+  color: #FF4B44;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: right;
+  padding: 5px 15px;
+}
+.modal .close:hover,
+.modal .close:focus {
+  color: red;
+  cursor: pointer;
+}
+.modal form {
+  border: 3px solid #f1f1f1;
+}
+.modal input[type=text],
+.modal input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.modal textarea {
+  width: 100%;
+  height: 400px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 20px;
+  resize: none;
+  margin-bottom: 20px;
+}
+.modal .animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s;
+}
+@-webkit-keyframes animatezoom {
+  from {
+    -webkit-transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+  }
+}
+@keyframes animatezoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.emptyerror {
+  text-align: center;
+  font-size: large;
+  padding-top: 10px;
+}
+
+/*FILES COMPONENT STYLES*/
+/* Style the checkmark/indicator */
+
+/*# sourceMappingURL=main.css.map */

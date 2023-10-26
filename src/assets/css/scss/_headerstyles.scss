@@ -1,0 +1,48 @@
+header {
+  border-bottom: 2px solid $border-color;
+  padding: 30px 20px 7px 30px;
+}
+#designlogo {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-family: "Courier New", Courier, monospace;
+}
+@media (max-width: 35rem) {
+  header {
+    padding: 0;
+  }
+  .routres {
+    text-align: center;
+  }
+  #designlogo {
+    text-align: center;
+  }
+  .routlink {
+    #tagli {
+      display: block;
+      padding: 10px 0px;
+      width: 250px;
+      text-align: center;
+      height: 50px;
+    }
+  }
+
+}
+.routlink {
+  display: inline-block;
+  button {
+    color: $bold-blue;
+    background-color: $pale-blue;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+  }
+  a {
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(42, 42, 42);
+  }
+  
+}

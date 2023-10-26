@@ -1,0 +1,342 @@
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+  max-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.sidebar{
+ height: 100vh;
+  position: relative;
+  border-right: 0.2rem solid rgba(48, 47, 47, 0.626);
+  max-width: 30vw;
+}
+.sidelink{
+display: flex;
+align-self: baseline;
+padding: 0.625rem;
+width: 12vw;
+}
+.projecthover:hover{
+  cursor: pointer;
+  color: #208EFE;
+  background-color: #ECF6FF;
+  border-radius: 20px;
+  transition: .4s;
+}
+.personalhover:hover{
+  cursor: pointer;
+  color: #8AC54B;
+  background-color: #E4F6D1;
+  border-radius: 20px;
+  transition: .4s;
+}
+.learninghover:hover{
+  cursor: pointer;
+  background-color: #FFE8EA;
+  color: #FF4B44;
+  border-radius: 20px;
+  transition: .4s;
+}
+.sidebarhover:hover{
+  cursor: pointer;
+}
+.header-component{
+  max-height: 25vh;
+}
+.sidebaroptions{
+  color: #4F5F86;
+  font-weight: bold;
+  padding: 1vh 0vw 2vh 2vw ;
+}
+.sidebaroptions ion-icon{
+   color: #45494F;
+   font-size: 1vw;
+   margin-right: 1.25rem;
+}
+.sidebaroptions p{
+  color: #45494F;
+  font-size: 0.8vw;
+}
+.sidebaroptions h6{
+  font-size: 0.6vw;
+  font-weight: 800;
+  margin: 0vh 0vw 1vh 1vw
+}
+.items-head{
+padding-left: 1.6vw;
+  font-size: 0.75rem;
+}
+.projects{
+  color: #208EFE;
+}
+.personal{
+  color: #8AC54B;
+}
+.learning{
+  color: #FF4B44;
+}
+.buttons{
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.addiconbox{
+  display: flex;
+  justify-content: start;
+height: 18vh;
+position: relative;
+}
+#addicon{
+font-size: 3.5vw;
+color: rgb(0, 162, 255);
+margin: 5vh 0vw 0vh 5.5vw;
+position: absolute;
+bottom: 20px;
+right: 40%;
+
+
+
+
+}
+
+#roadmap{
+padding: 4.5vh 0vw 1.2vh 7vh;
+font-size: 1.25rem;
+font-weight: 600;
+}
+#designmenu{
+display: flex;
+justify-content: space-between;
+padding: 1vh 3.3vw 1vh 3.1vw;
+align-items: center;
+}
+#designlogo{
+  font-size: 3.125rem;
+  font-weight: bolder;
+}
+
+#filterlink button{
+  background: none;
+  border: none;
+  padding: .31rem .93rem;
+  font-weight: bold;
+  
+}
+#close-circle{
+  color: #FF4B44;
+  font-size: 1.87rem;
+  padding: 1vh 0vw 0vh 1vw ;
+}
+#remove-circle{
+  color: #FFC022;
+  font-size: 1.87rem;
+  padding-top: 1vh;
+}
+#ellipsis-horizontal{
+  font-size:  1.87rem;
+  padding: 1vh 1vw 0vh 0vw;
+}
+.routlink{
+ padding-left: 1.25rem;
+  border-bottom: 1px solid black;
+
+}
+.routlink a{
+  text-decoration: none;
+  padding: 1.25rem 1.56rem;
+  font-weight: bold;
+  color: rgb(42, 42, 42);
+}
+.routlink button{
+  color: #208EFE;
+  background-color: #96C9F9;
+  width: 30px;
+  height: 30px;
+border-radius: 50%;
+  border: none;
+}
+#activefilter{
+  background-color: #208EFE !important;
+  border-radius: 15px;
+color: white;
+
+}
+.activenav{
+  border-bottom: 3px solid blue;
+}
+.routerview{
+ height: 67vh;
+}
+
+
+#everdo{
+color: #208EFE;
+}
+#addtask{
+  background-color: #E3F1FF;
+  color: #379CFF;
+}
+
+
+
+/*FILES COMPONENT STYLES*/
+.filecomponent{
+  padding: 2vh 5vw !important;
+}
+.Assets{
+  border-bottom:  2px solid rgba(106, 104, 104, 0.324);
+ display: flex;
+ align-items: baseline;
+ justify-content: space-between;
+ padding: 1vh 0vw;
+
+}
+
+.Assets:hover{
+  cursor: pointer;
+}
+.Assets p{
+  display: inline;
+  font-size: 1.5rem;
+  position: absolute;
+  padding: 1.6vh 0vw 0vh 1vw;
+  font-weight: 400;
+  }
+.Inspiration{
+  display: flex;
+  justify-content: space-between;
+  border-bottom:  2px solid rgba(106, 104, 104, 0.324);
+  padding: 1vh 0vw;
+}
+.Inspiration:hover{
+  cursor: pointer;
+}
+.Inspiration p{
+  font-size: 1.5rem;
+  display: inline;
+  font-size: 1.5rem;
+  position: absolute;
+  padding: 1.6vh 0vw 0vh 1vw;
+  font-weight: 400;
+}
+.foldericon{
+  color: #208EFE;
+  font-size: 3rem;
+}
+
+
+
+
+
+.inputs{
+  padding: 10px 0px 2px 0px;
+  max-width: 100%;
+}
+.inputs:hover{
+  cursor: pointer;
+  background-color: #EFF0F2;
+  border-radius: 10px;
+  transition: .5s;
+}
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  max-width: 100%;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  margin-left: -5px;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  margin-top: -5px;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  background-color: #eee;
+  border-radius: 35%;
+  box-shadow: 0px 9px 20px rgba(13, 38, 76, 0.19);
+}
+
+/* On mouse-over, add a grey background color */
+
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked~.checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked~.checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+
+

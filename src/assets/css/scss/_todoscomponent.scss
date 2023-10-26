@@ -1,0 +1,49 @@
+@import "inputsstyles";
+
+#todos {
+    padding: 0px !important;
+
+    #completedlist,
+    #inholdlist {
+        margin-top: 30px;
+        .titlefilter {
+            border-bottom: 2px solid $border-color;
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 3px;
+            margin-bottom: 3px;
+        }
+
+        #donetodos {
+            max-width: 100%;
+            display: flex;
+            align-items: center;
+            ion-icon {
+                color: $bold-blue;
+                font-size: 30px;
+                font-weight: 800;
+                position: absolute;
+            }
+            #donetext {
+                display: block;
+                padding: 6px 0px 0px 45px;
+                font-size: 18px;
+                font-weight: bold;
+                text-decoration: line-through;
+                color: rgb(121, 118, 118);
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                max-width: 100%;
+            }
+        }
+        h6 {
+            font-size: 20px;
+            font-weight: bolder;
+        }
+    }
+    .disappear {
+        display: none;
+    }
+}

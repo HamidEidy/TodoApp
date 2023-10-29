@@ -1,5 +1,5 @@
 # TodoApp
-This website consists of two sections, sideذbar and body.
+This website consists of two sections, sidebar and body.<br>
 The body consists of 4 routes<br>
 1: Todo list<br>
 ![1](https://github.com/HamidEidy/TodoApp/assets/148962898/22fb7af8-6016-4340-9726-1edcf8262449)
@@ -12,7 +12,6 @@ The body consists of 4 routes<br>
 ## Build Setup
 
 ### 1- install dependencies
-> npm install
 ```sh
 npm i
 ```

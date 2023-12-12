@@ -3,41 +3,32 @@
         <div id="messages" v-for="items in listItems">
             <div>
                 <div id="newstitle">{{ items.title }}</div>
-              <div id="newsbody" >{{ items.body }}</div>
+                <div id="newsbody">{{ items.body }}</div>
             </div>
         </div>
     </div>
 </template>
 
-<script>
+<script setup>
 import axios from 'axios'
-export default {
-    data() {
-        return {
-            listItems: [
+import { ref, onMounted } from 'vue'
+const listItems = ref([])
 
-            ]
-        }
-    },
-    created() {
-        axios.get("https://jsonplaceholder.typicode.com/posts?_start=1&_limit=5").then(({ data }) => {
-            const dataa = Object.entries(data).map(([title, body]) => {
-                return {
-                    title,
-                    ...body
-                };
-            })
-            this.listItems = dataa
-        }
-        )
-        .catch("check your connection")
+
+
+onMounted(() => {
+    axios.get("https://jsonplaceholder.typicode.com/posts?_start=1&_limit=5").then(({ data }) => {
+        const dataa = Object.entries(data).map(([title, body]) => {
+            return {
+                title,
+                ...body
+            };
+        })
+        listItems.value = dataa
     }
-}
-
-
-
-
-
+    )
+        .catch("check your connection")
+})
 </script>
 
 

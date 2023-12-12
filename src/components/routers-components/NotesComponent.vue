@@ -4,8 +4,7 @@
         <div id="addnotebox" class="modal">
             <!-- Modal Content -->
             <form class="modal-content">
-                <span id="closeaddnotebox" @click="closent"
-                    title="Close Modal">&times;</span>
+                <span id="closeaddnotebox" @click="closent" title="Close Modal">&times;</span>
                 <div class="container">
                     <p id="title">Add Note</p>
                     <label for="uname">Title</label>
@@ -36,8 +35,7 @@
                 <li id="notebox" v-for="items, index in notes" :key="index">
                     <div id="notehead">
                         <p id="titletext">{{ items.title }} </p>
-                        <p id="deletenote" @click="deletenote(index)"
-                            title="Close Modal">&times;</p>
+                        <p id="deletenote" @click="deletenote(index)" title="Close Modal">&times;</p>
                     </div>
                     <p id="body">{{ items.text }}</p>
                 </li>
@@ -60,48 +58,41 @@
 
     <teleport to="#trashitems">
         <div v-for="(items, index) in notetrash" :key="index">
-         <p> {{ items.title }}</p>  
+            <p> {{ items.title }}</p>
         </div>
     </teleport>
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            notes: [],
-            titleval: '',
-            textval: '',
-            notetrash: []
-        }
-    },
-    methods: {
-        closent(){
-document.getElementById('addnotebox').style.display = 'none'
-        },
-        addnotes() {
-            if (this.titleval && this.textval) {
-            const newnotes = { title: `${this.titleval}`, text: `${this.textval}` }
-                this.notes.push(newnotes)
-            document.getElementById('addnotebox').style.display = 'none'
-            this.titleval = this.textval = ''
-            }else{
-                console.log("err")
-            }
-       
-
-        },
-        opennotebox() {
-            document.getElementById('addnotebox').style.display = 'block'
-        },
-        deletenote(index) {
-            this.notetrash.push(this.notes[index])
-            this.notes.splice(index, 1)
-        },
-
+<script setup>
+import { ref, reactive } from 'vue'
+import { useToast } from "vue-toastification";
+const toast = useToast()
+function opennotebox() {
+    $('#addnotebox').show()
+}
+function closent() {
+    $('#addnotebox').hide()
+}
+const notes = reactive([]);
+const titleval = ref('');
+const textval = ref('');
+function addnotes() {
+    if (titleval.value && textval.value) {
+        const newnotes = { title: `${titleval.value}`, text: `${textval.value}` }
+        notes.push(newnotes)
+        document.getElementById('addnotebox').style.display = 'none'
+        titleval.value = textval.value = ''
+        toast.success("Add New Note")
+    } else {
+        toast.error("Leave a Value")
     }
 }
-
+const notetrash = reactive([])
+function deletenote(index) {
+    notetrash.push(notes[index])
+    notes.splice(index, 1)
+    toast.warning("Deleted")
+}
 </script>
 
 

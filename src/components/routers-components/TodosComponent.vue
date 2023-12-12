@@ -69,62 +69,50 @@
                     {{ items.text }}
                 </p>
             </div>
-           
+
         </teleport>
         <teleport to="#trashlength">
-            <p>{{ trash.length  }}</p>
-            </teleport>
+            <p>{{ trash.length }}</p>
+        </teleport>
     </div>
-    
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            newtodo: '',
-            completedfilter: true,
-            progressfilter: true,
-            completed: [],
-            progress: [],
-            trash: []
-        }
-    },
+<script setup>
+import { ref, reactive } from 'vue';
+import { useToast } from "vue-toastification";
+const toast = useToast()
+const newtodo = ref('');
+const completedfilter = ref(true);
+const progressfilter = ref(true);
+const completed = reactive([]);
+const trash = reactive([]);
+const progress = reactive([])
 
-
-
-
-    methods: {
-        donetodo() {
-            if (this.newtodo) {
-                const todofield = { text: `${this.newtodo}`, done: 'false' }
-                console.log(todofield)
-                this.progress.push({
-                    ...todofield
-                })
-                this.newtodo = ''
-                this.$emit('notification', 2)
-            } else {
-                console.log('مقدار وارد کنید')
-            }
-
-        },
-        movetodone(index) {
-            console.log(this.progress[index])
-            this.progress[index].done = true
-            this.completed.push(this.progress[index])
-            this.progress.splice(index, 1)
-        },
-        movetotrash(index) {
-            console.log(this.progress[index])
-            this.trash.push(this.progress[index])
-            this.progress.splice(index, 1)
-        }
+function donetodo() {
+    if (newtodo.value) {
+        const todofield = { text: `${newtodo.value}`, done: 'false' }
+        console.log(todofield)
+        progress.push({
+            ...todofield
+        })
+        toast.success("Add New Todo");
+        newtodo.value = ''
+    } else {
+        toast.error("Leave a Value")
     }
 }
-
-
-
+function movetodone(index) {
+    progress[index].done = true
+    completed.push(progress[index])
+    progress.splice(index, 1)
+    toast.success("DONE")
+}
+function movetotrash(index) {
+    console.log(progress[index])
+    trash.push(progress[index])
+    progress.splice(index, 1)
+    toast.warning("Deleted")
+}
 </script>
 
 

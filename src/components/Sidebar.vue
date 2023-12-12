@@ -2,7 +2,6 @@
     <!-- img and calendar -->
     <div id="topside">
         <img src="./../assets/TodoImg.webp" alt="NotePad">
-
         <div id="calendar">
             <div id="timeframe">
                 <div id="hours">{{ hours }}</div>
@@ -10,7 +9,6 @@
                 <div id="minutes">{{ minutes }}</div>
             </div>
             <div id="dateframe">
-
                 <p id="dayname"> {{ daynumber }} </p>
                 <p id="daynumber"> {{ daymonth }}</p>
                 <p id="monthname">{{ monthname }}</p>
@@ -32,13 +30,10 @@
             <!-- The Modal -->
             <div id="trashcontent" class="modal">
                 <p id="titles">Trash Bin</p>
-                <span id="closetrashbox" @click="closetrshbox"
-                    class="close" title="Close Modal">&times;</span>
+                <span id="closetrashbox" @click="closetrshbox" class="close" title="Close Modal">&times;</span>
                 <!-- Modal Content -->
                 <form>
-
                     <div id="trashitems">
-
                     </div>
                 </form>
             </div>
@@ -53,8 +48,7 @@
             </li>
             <!-- The Modal -->
             <div id="buy" class="modal">
-                <span id="closeupgrade" @click="closeupgrdbox" class="close"
-                    title="Close Modal">&times;</span>
+                <span id="closeupgrade" @click="closeupgrdbox" class="close" title="Close Modal">&times;</span>
                 <!-- Modal Content -->
                 <form>
                     <div id="title">SELECT YOUR PLAN</div>
@@ -156,7 +150,6 @@
         <!-- End Upgrade Item -->
 
         <!-- start about item -->
-
         <li id="aboutme" data-bs-toggle="collapse" data-bs-target="#demo"><lord-icon
                 src="https://cdn.lordicon.com/jnlncdtk.json" trigger="hover"
                 colors="primary:#646e78,secondary:#ad6836,tertiary:#4faef9,quaternary:#f3c3ba,quinary:#e7e2eb"
@@ -170,29 +163,13 @@
 
             </div>
         </div>
-       
+
     </ul>
-
     <!-- end about item -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     <!-- link in sidebar buttom -->
     <div id="btmtext">
-
         <div id="callme">
             <a href="#" data-toggle="tooltip" title="Linkedin"><ion-icon name="logo-linkedin"></ion-icon></a>
             <a href="https://www.instagram.com/hamidreza__eidy/" data-toggle="tooltip" title="Instagram"
@@ -210,75 +187,43 @@
 
 
 
-<script>
-export default {
-    name: "DigitalClock",
-    data() {
-        return {
-            orgdate: '',
-            orgtime: '',
-            hours: 0,
-            minutes: 0,
-            seconds: 0,
-            daynumber: '',
-            daymonth: '',
-            monthname: ''
-        }
-    },
-    methods: {
-        openupgradebox() {
-            document.getElementById('buy').style.display = 'block'
-        },
-        opentrashbox() {
-            document.getElementById('trashcontent').style.display = 'block'
-        },
-        setTime() {
-            const date = new Date();
-            let hours = date.getHours();
-            let minutes = date.getMinutes();
-            let seconds = date.getSeconds();
-            hours = hours <= 9 ? `${hours}`.padStart(2, 0) : hours;
-            minutes = minutes <= 9 ? `${minutes}`.padStart(2, 0) : minutes;
-            seconds = seconds <= 9 ? `${seconds}`.padStart(2, 0) : seconds;
-            this.hours = hours;
-            this.minutes = minutes;
-            this.seconds = seconds;
-        },
-        gotopro() {
-            this.$router.push('/filescomponent')
-            document.getElementById('banal').style.display = 'none'
-
-        },
-        closetrshbox(){
-        document.getElementById('trashcontent').style.display='none'
-        },
-  
-        closeupgrdbox(){
-            document.getElementById('buy').style.display='none'
-        }
-    },
-    mounted() {
-
-        const current = new Date();
-        const date = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
-
-        this.daymonth = current.getDate()
-        this.orgdate = date
-        const time = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
-        this.orgtime = time;
-        setInterval(() => this.setTime(), 1000)
-        const dayName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        const day = dayName[new Date().getDay()];
-        console.log(day)
-        this.daynumber = day
-        const dates = new Date();
-        const month = dates.toLocaleString('default', { month: 'long' });
-        this.monthname = month
-    }
+<script setup>
+import { ref, onMounted } from 'vue'
+function openupgradebox() {
+    $('#buy').show()
 }
+function opentrashbox() {
+    $('#trashcontent').show()
+}
+function closetrshbox() {
+    $('#trashcontent').hide()
+}
+function closeupgrdbox() {
+    $('#buy').hide()
+}
+const hours = ref(0);
+const minutes = ref(0);
+const daynumber = ref('');
+const daymonth = ref('');
+const monthname = ref('');
+onMounted(() => {
+    const current = new Date();
+    //get hour
+    const hour = current.getHours()
+    hours.value = hour <= 9 ? `${hour}`.padStart(2, 0) : hour;
 
+    //get min
+    const min = current.getMinutes()
+    minutes.value = min <= 9 ? `${min}`.padStart(2, 0) : min;
 
-
+    //get calender
+    const dayName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const day = dayName[new Date().getDay()];
+    daynumber.value = day
+    const month = current.toLocaleString('default', { month: 'long' });
+    monthname.value = month;
+    daymonth.value = current.getDate()
+})
 </script>
 
 

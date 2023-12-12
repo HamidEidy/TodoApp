@@ -4,66 +4,56 @@
         <div class="routlink row ">
             <router-link id="tagli" to="/TodosComponent"><button id="teleporttarget"></button>
                 Todos</router-link>
-            <router-link  id="tagli" class="col-md-1 col-sm-6 col-xs-6" to="/NotesComponent"><button id="teleportnotes"></button>
+            <router-link id="tagli" class="col-md-1 col-sm-6 col-xs-6" to="/NotesComponent"><button
+                    id="teleportnotes"></button>
                 Notes</router-link>
-            <router-link  id="tagli" to="/NewsComponent"><button>{{ Newslist.length }}</button>
+            <router-link id="tagli" to="/NewsComponent"><button>{{ Newslist.length }}</button>
                 News</router-link>
             <router-link id="tagli" to="/FilesComponent">Analytices
-            </router-link>        </div>
+            </router-link>
+        </div>
     </div>
-
 </template>
 
 
 
 
-<script>
-import TodosComponent from './routers-components/TodosComponent.vue'
-import NewsComponent from './routers-components/NewsComponent.vue'
-import FilesComponent from './routers-components/FilesComponent.vue'
-import NotesComponent from './routers-components/NotesComponent.vue'
-export default {
+<script setup>
+import {  reactive, onMounted } from 'vue'
 
-    components: { TodosComponent, NewsComponent, FilesComponent, NotesComponent },
-    data() {
-        return {
-            Newslist: [],
-        }
-    },
+const Newslist = reactive([]);
 
-    mounted() {
-        axios.get("https://jsonplaceholder.typicode.com/posts?_start=1&_limit=5").then(({ data }) => {
-            const dataa = Object.entries(data).map(([title, body]) => {
-                return {
-                    title,
-                    ...body
-                };
-            })
-            this.Newslist = dataa
-        }
-        )
-            .catch("check your connection")
-    },
+onMounted(() => {
+    axios.get("https://jsonplaceholder.typicode.com/posts?_start=1&_limit=5").then(({ data }) => {
+        const dataa = Object.entries(data).map(([title, body]) => {
+            return {
+                title,
+                ...body
+            };
+        })
+        Newslist.value = dataa
+    }
+    )
+        .catch("check your connection")
+},
 
-}
-
-
+)
 </script>
 
 
 
 
 <style scoped>
-#proicon{
+#proicon {
     position: absolute !important;
     margin-left: -4px;
 }
 
-#tagli.router-link-active{
- 
-        padding-bottom: 14px;
-        border-bottom: 2px solid blue;
-      
+#tagli.router-link-active {
+
+    padding-bottom: 14px;
+    border-bottom: 2px solid blue;
+
 }
 
 .banalert {

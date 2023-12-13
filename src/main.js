@@ -4,6 +4,7 @@ import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css"
 import App from './App.vue'
 import {onMounted} from 'vue'
+import { createPinia } from 'pinia'
 import { createRouter, createWebHistory } from 'vue-router'
 import TodosComponent from './components/routers-components/TodosComponent.vue'
 import FilesComponent from './components/routers-components/FilesComponent.vue'
@@ -50,4 +51,5 @@ const router = createRouter({
 const app = createApp(App)
 app.use(router)
 app.use(Toast)
+app.use(createPinia())
 app.mount('#app')

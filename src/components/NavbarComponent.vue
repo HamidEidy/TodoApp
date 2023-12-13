@@ -2,15 +2,16 @@
     <p id="designlogo">Plan DO</p>
     <div class="routres">
         <div class="routlink row ">
-            <router-link id="tagli" to="/TodosComponent"><button id="teleporttarget"></button>
+            <router-link id="tagli" to="/TodosComponent"><button>{{ Todolength.length }}</button>
                 Todos</router-link>
-            <router-link id="tagli" class="col-md-1 col-sm-6 col-xs-6" to="/NotesComponent"><button
-                    id="teleportnotes"></button>
+            <router-link id="tagli" class="col-md-1 col-sm-6 col-xs-6" to="/NotesComponent"><button>{{ notelength.length
+            }}</button>
                 Notes</router-link>
             <router-link id="tagli" to="/NewsComponent"><button>{{ Newslist.length }}</button>
                 News</router-link>
             <router-link id="tagli" to="/FilesComponent">Analytices
             </router-link>
+
         </div>
     </div>
 </template>
@@ -19,10 +20,14 @@
 
 
 <script setup>
-import {  reactive, onMounted } from 'vue'
-
+import { reactive, onMounted } from 'vue'
+import { useTaskStore } from '../../store/task';
+import { useNoteStore } from '../../store/note';
 const Newslist = reactive([]);
-
+const store = useTaskStore();
+const noteStore = useNoteStore();
+const Todolength = store.alltasks
+const notelength = noteStore.notes
 onMounted(() => {
     axios.get("https://jsonplaceholder.typicode.com/posts?_start=1&_limit=5").then(({ data }) => {
         const dataa = Object.entries(data).map(([title, body]) => {

@@ -15,15 +15,6 @@
                 </div>
             </form>
         </div>
-
-
-
-
-
-
-
-
-
         <div id="notesbody">
             <div id="title">
                 <h6>NoteBox</h6>
@@ -41,21 +32,7 @@
                 </li>
             </ul>
         </div>
-
-
-
-
-
-
-        <teleport to="#teleportnotes">
-            {{ notes.length }}
-        </teleport>
     </div>
-
-
-
-
-
     <teleport to="#trashitems">
         <div v-for="(items, index) in notetrash" :key="index">
             <p> {{ items.title }}</p>
@@ -64,8 +41,10 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, computed } from 'vue'
 import { useToast } from "vue-toastification";
+import { useNoteStore } from '../../../store/note';
+const store = useNoteStore();
 const toast = useToast()
 function opennotebox() {
     $('#addnotebox').show()
@@ -73,16 +52,15 @@ function opennotebox() {
 function closent() {
     $('#addnotebox').hide()
 }
-const notes = reactive([]);
+const notes = computed(() => store.allnotes);
 const titleval = ref('');
 const textval = ref('');
 function addnotes() {
     if (titleval.value && textval.value) {
         const newnotes = { title: `${titleval.value}`, text: `${textval.value}` }
-        notes.push(newnotes)
-        document.getElementById('addnotebox').style.display = 'none'
+        store.addtonotes(newnotes)
+        $('#addnotebox').hide()
         titleval.value = textval.value = ''
-        toast.success("Add New Note")
     } else {
         toast.error("Leave a Value")
     }

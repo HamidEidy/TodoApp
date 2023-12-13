@@ -19,7 +19,7 @@
                 <h6>Completed plans</h6>
             </div>
 
-            <p v-if="completed.length < 1">empty...</p>
+            <!-- <p v-if="completed.length < 1">empty...</p> -->
 
 
 
@@ -37,8 +37,6 @@
             <div class="titlefilter">
                 <h6>in progress</h6>
             </div>
-
-
             <ul>
                 <li v-for="(items, index) in progress" :key="Date">
                     <div class="inputs">
@@ -60,60 +58,56 @@
             </ul>
             <input id="placehold" type="text" placeholder=" +   add item" v-model="newtodo" @click="donetodo">
         </div>
-        <teleport to="#teleporttarget">
-            {{ progress.length }}
-        </teleport>
-        <teleport to="#trashitems">
+
+        <!-- <teleport to="#trashitems">
             <div v-for="(items, index) in trash" :key="index">
                 <p>
                     {{ items.text }}
                 </p>
             </div>
 
-        </teleport>
-        <teleport to="#trashlength">
-            <p>{{ trash.length }}</p>
-        </teleport>
+        </teleport> -->
+
     </div>
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue';
+import { ref, reactive, computed } from 'vue';
 import { useToast } from "vue-toastification";
+import { useTaskStore } from '../../../store/task';
+const store = useTaskStore();
 const toast = useToast()
 const newtodo = ref('');
 const completedfilter = ref(true);
 const progressfilter = ref(true);
-const completed = reactive([]);
-const trash = reactive([]);
-const progress = reactive([])
 
+// const trash = reactive([]);
+const progress = computed(() => store.alltasks)
+const completed = computed(() => store.completeds)
 function donetodo() {
     if (newtodo.value) {
         const todofield = { text: `${newtodo.value}`, done: 'false' }
-        console.log(todofield)
-        progress.push({
-            ...todofield
-        })
-        toast.success("Add New Todo");
+        store.addtodo(todofield)
         newtodo.value = ''
     } else {
         toast.error("Leave a Value")
     }
-}
+ }
 function movetodone(index) {
-    progress[index].done = true
-    completed.push(progress[index])
-    progress.splice(index, 1)
-    toast.success("DONE")
+store.movetodones(index)
 }
-function movetotrash(index) {
-    console.log(progress[index])
-    trash.push(progress[index])
-    progress.splice(index, 1)
-    toast.warning("Deleted")
-}
+
+// function movetotrash(index) {
+    // console.log(progress[index])
+    // trash.push(progress[index])
+    // progress.splice(index, 1)
+    // toast.warning("Deleted")
+
 </script>
 
 
-<style scoped></style>
+<style scoped>
+#donetodos{
+    position: relative;
+}
+</style>

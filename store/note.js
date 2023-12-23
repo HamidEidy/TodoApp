@@ -8,20 +8,20 @@ export const useNoteStore = defineStore('note', {
     state: () => {
         return {
             notes: localStorage.getItem('notes') ? JSON.parse(localStorage.getItem('notes')) : [],
+
         }
     },
-    getters:{
-        allnotes(state){
+    getters: {
+        allnotes(state) {
             return state.notes
         }
     },
-actions: {
+    actions: {
         addtonotes(newnotes) {
             this.notes.push(newnotes)
             SaveNoteToLocalStorage(this.notes)
             toast.success("Add New Note")
         }
     }
-
 
 })

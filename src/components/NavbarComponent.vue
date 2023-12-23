@@ -7,7 +7,7 @@
             <router-link id="tagli" class="col-md-1 col-sm-6 col-xs-6" to="/NotesComponent"><button>{{ notelength.length
             }}</button>
                 Notes</router-link>
-            <router-link id="tagli" to="/NewsComponent"><button>{{ Newslist.length }}</button>
+            <router-link id="tagli" to="/NewsComponent"><button>5</button>
                 News</router-link>
             <router-link id="tagli" to="/FilesComponent">Analytices
             </router-link>
@@ -28,21 +28,21 @@ const store = useTaskStore();
 const noteStore = useNoteStore();
 const Todolength = store.alltasks
 const notelength = noteStore.notes
-onMounted(() => {
-    axios.get("https://jsonplaceholder.typicode.com/posts?_start=1&_limit=5").then(({ data }) => {
-        const dataa = Object.entries(data).map(([title, body]) => {
-            return {
-                title,
-                ...body
-            };
-        })
-        Newslist.value = dataa
-    }
-    )
-        .catch("check your connection")
-},
+// onMounted(() => {
+//     axios.get("https://jsonplaceholder.typicode.com/posts?_start=1&_limit=5").then(({ data }) => {
+//         const dataa = Object.entries(data).map(([title, body]) => {
+//             return {
+//                 title,
+//                 ...body
+//             };
+//         })
+//         Newslist.value = dataa
+//     }
+//     )
+//         .catch("check your connection")
+// },
 
-)
+//)
 </script>
 
 

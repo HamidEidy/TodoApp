@@ -34,6 +34,7 @@ footer, header, hgroup, main, menu, nav, section {
 body {
   font-family: monospace;
   line-height: 1;
+  
 }
 
 menu, ol, ul {
@@ -54,7 +55,8 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
+body{
+}
 /* end css reset codes */
 /*this color has been used in the sidebar*/
 /*this color has been used in the sidebar*/

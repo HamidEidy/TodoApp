@@ -34,9 +34,9 @@
         </div>
     </div>
     <teleport to="#trashitems">
-        <div v-for="(items, index) in notetrash" :key="index">
-            <p> {{ items.title }}</p>
-        </div>
+  
+            <p  v-for="(item, index) in trash" :key="index"> {{ item.title }}</p>
+  
     </teleport>
 </template>
 
@@ -44,8 +44,11 @@
 import { ref, reactive, computed } from 'vue'
 import { useToast } from "vue-toastification";
 import { useNoteStore } from '../../../store/note';
+import { useTrashStore } from "../../../store/trash";
+const state = useTrashStore()
 const store = useNoteStore();
-const toast = useToast()
+const toast = useToast();
+const trash = computed(() => state.trash);
 function opennotebox() {
     $('#addnotebox').show()
 }
@@ -65,10 +68,11 @@ function addnotes() {
         toast.error("Leave a Value")
     }
 }
-const notetrash = reactive([])
+// const notetrash = reactive([])
+
 function deletenote(index) {
-    notetrash.push(notes[index])
-    notes.splice(index, 1)
+    this.trash.push(this.notes[index])
+    this.notes.splice(index, 1)
     toast.warning("Deleted")
 }
 </script>

@@ -114,7 +114,8 @@ section {
 body {
   font-family: Arial, monospace;
   line-height: 1;
-  min-height: 100%;
+  min-height: 100 vh;
+
 }
 
 menu,
@@ -143,8 +144,8 @@ table {
 
 /* end css reset codes */
 main {
-  overflow: auto;
-  padding: 40px;
+min-height: max-content;
+  padding: 40px 40px 0px 40px;
 }
 
 ::-webkit-scrollbar {
@@ -1011,6 +1012,12 @@ label {
     display: flex;
     flex-direction: row;
     text-align: center;
+  }
+  #buy{
+    padding-top: 50px;
+  }
+  #buy .close{
+    margin-top: -40px;
   }
 }
 

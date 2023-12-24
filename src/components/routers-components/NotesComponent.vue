@@ -55,13 +55,11 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, onMounted } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { useToast } from "vue-toastification";
-// import { useNoteStore } from "../../../store/note";
 import { useTaskStore } from "../../../store/task";
 
 const store = useTaskStore();
-// const store = useNoteStore();
 const toast = useToast();
 const notes = computed(() => store.notes);
 const trash = onMounted(() => store.trash);
@@ -72,7 +70,6 @@ const trash = onMounted(() => store.trash);
   function closent() {
     $("#addnotebox").hide();
   }
-  // const notes = computed(() => store.allnotes);
   const titleval = ref("");
   const textval = ref("");
   function addnotes() {
@@ -81,12 +78,12 @@ const trash = onMounted(() => store.trash);
       store.addnote(newnotes);
       $("#addnotebox").hide();
       titleval.value = textval.value = "";
-      navigateTo('/google.com')
+
     } else {
       toast.error("Leave a Value");
     }
   }
-  // const notetrash = reactive([])
+
 
   function deletenote(index) {
     store.deletenote(index);

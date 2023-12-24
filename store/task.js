@@ -1,3 +1,4 @@
+import { Toast } from 'bootstrap';
 import { defineStore } from 'pinia'
 import { useToast } from "vue-toastification";
 const toast = useToast();
@@ -11,16 +12,16 @@ function Trashtodos(trash) {
 function AllNotesInLocalStorega(notes) {
     localStorage.setItem('notes', JSON.stringify(notes))
 }
-function Completed(donetodos){
+function Completed(donetodos) {
     localStorage.setItem('donetodos', JSON.stringify(donetodos))
 }
 
 export const useTaskStore = defineStore('task', {
     state: () => {
         return {
-            todos:localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : [],
-            trash:localStorage.getItem('trash') ? JSON.parse(localStorage.getItem('trash')) : [],
-            notes:localStorage.getItem('notes') ? JSON.parse(localStorage.getItem('notes')) : []
+            todos: localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : [],
+            trash: localStorage.getItem('trash') ? JSON.parse(localStorage.getItem('trash')) : [],
+            notes: localStorage.getItem('notes') ? JSON.parse(localStorage.getItem('notes')) : []
         }
     },
     getters: {
@@ -37,41 +38,43 @@ export const useTaskStore = defineStore('task', {
             this.todos.push({
                 ...todofield
             })
-           AlltodosInLocalStorega(this.todos)
+            AlltodosInLocalStorega(this.todos)
             toast.success("Add New Todo");
         },
         movetodones(index) {
             this.donetodos[index].done = false;
             AlltodosInLocalStorega(this.todos)
+            toast.success("Done One Task")
         },
         movetotrash(index) {
             const pushitem = this.donetodos[index]
             console.log(index);
-             this.todos = this.todos.filter((todos) => todos !== pushitem)
+            this.todos = this.todos.filter((todos) => todos !== pushitem)
             this.trash.push({
                 ...pushitem
-             } );
-           Trashtodos(this.trash)
-         AlltodosInLocalStorega(this.todos)
-  
-            
+            });
+            Trashtodos(this.trash)
+            AlltodosInLocalStorega(this.todos)
+
+            toast.warning("Deleted Task")
         },
-        clearTrash(){
+        clearTrash() {
             this.trash = []
             Trashtodos(this.trash)
+            toast.warning("TrashBin Deleted")
         },
 
         addnote(newnotes) {
             this.notes.push({
                 ...newnotes
             })
-           AllNotesInLocalStorega(this.notes)
+            AllNotesInLocalStorega(this.notes)
             toast.success("Add New Note")
         },
         deletenote(index) {
             this.trash.push(this.notes[index])
             this.notes.splice(index, 1)
-          AllNotesInLocalStorega(this.notes)
+            AllNotesInLocalStorega(this.notes)
             toast.warning("Deleted")
         }
     }

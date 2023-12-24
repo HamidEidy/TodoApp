@@ -23,29 +23,9 @@
 
  import { computed } from 'vue';
 import { useTaskStore } from '../../store/task';
-// import { useNoteStore } from '../../store/note';
-// const Newslist = reactive([]);
  const store = useTaskStore();
  const todo = computed(()=> store.InHold.length)
  const note = computed(() => store.notes.length)
-// const noteStore = useNoteStore();
-// const Todolength = store.alltasks
-// const notelength = noteStore.notes
-// onMounted(() => {
-//     axios.get("https://jsonplaceholder.typicode.com/posts?_start=1&_limit=5").then(({ data }) => {
-//         const dataa = Object.entries(data).map(([title, body]) => {
-//             return {
-//                 title,
-//                 ...body
-//             };
-//         })
-//         Newslist.value = dataa
-//     }
-//     )
-//         .catch("check your connection")
-// },
-
-//)
 </script>
 
 
@@ -60,7 +40,7 @@ import { useTaskStore } from '../../store/task';
 #tagli.router-link-active {
 
     padding-bottom: 14px;
-    border-bottom: 2px solid blue;
+    border-bottom: 2px solid #208EFE;
 
 }
 

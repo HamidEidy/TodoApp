@@ -24,8 +24,6 @@
         <h6>Completed plans</h6>
       </div>
 
-      <!-- <p v-if="completed.length < 1">empty...</p> -->
-
       <div id="donetodos" v-for="(items, index) in InHold" :key="index">
         <ion-icon name="checkmark-done"></ion-icon>
         <label id="donetext">
@@ -76,31 +74,18 @@
       />
     </div>
     <div id="trsh">
-      {{ trash }}d
+      {{ trash }}
     </div>
-
-
-    <!-- <teleport to="#trashitems">
-        <p v-for="(items, index) in trash" :key="index">
-          {{ items.text }}
-        </p>
-      </teleport> -->
   </div>
 </template>
 
 <script setup>
-import { ref, reactive, computed, onMounted } from "vue";
-import { useToast } from "vue-toastification";
+import { ref, computed } from "vue";
 import { useTaskStore } from "../../../store/task";
-
 const store = useTaskStore();
-
-const toast = useToast();
 const newtodo = ref("");
 const completedfilter = ref(true);
 const progressfilter = ref(true);
-
-// const trash = reactive([]);
  const donetodos = computed(() => store.donetodos);
  const InHold = computed(() => store.InHold);
  const trash = computed(() => store.trash);
@@ -108,23 +93,20 @@ const progressfilter = ref(true);
 function donetodo() {
   if (newtodo.value) {
     const todofield = { text: `${newtodo.value}`, done: true };
-// console.log(todofield);
 store.addtodo(todofield)
     newtodo.value = "";
   } else {
-    toast.error("Leave a Value");
+    $('#placehold').attr('placeholder', '      Type your Plan + Click', 'color' , 'red')
   }
 }
 function movetodone(index) {
   store.movetodones(index);
 }
-
 function movetotrash(index) {
-    store.movetotrash(index)
+    store.movetotrash(index);
 }
  
 </script>
-
 
 <style scoped>
 #donetodos {

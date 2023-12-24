@@ -730,7 +730,8 @@ header {
 #file p {
   color: #208EFE;
   color: #689FD9;
-  font-size: 20px;
+  font-size: 15px;
+  margin-top: 10px;
 }
 
 .inputs {
@@ -1007,6 +1008,9 @@ label {
     display: flex;
     flex-direction: row;
     width: 100%;
+  }
+  main{
+    min-height: 90vh;
   }
   #btmtext #callme {
     display: flex;

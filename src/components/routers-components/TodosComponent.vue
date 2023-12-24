@@ -26,7 +26,7 @@
 
       <!-- <p v-if="completed.length < 1">empty...</p> -->
 
-      <div id="donetodos" v-for="(items, index) in completed" :key="index">
+      <div id="donetodos" v-for="(items, index) in InHold" :key="index">
         <ion-icon name="checkmark-done"></ion-icon>
         <label id="donetext">
           {{ items.text }}
@@ -39,7 +39,7 @@
         <h6>in progress</h6>
       </div>
       <ul>
-        <li v-for="(items, index) in progress" :key="items.title">
+        <li v-for="(items, index) in donetodos" :key="items.title">
           <div class="inputs">
             <lord-icon
               @click="movetodone(index)"
@@ -75,38 +75,41 @@
         @click="donetodo"
       />
     </div>
+    <div id="trsh">
+      {{ trash }}d
+    </div>
 
-    <teleport to="#trashitems">
-        
-                <p v-for="(items, index) in trash" :key="index">
-                    {{ items.text }}
-                </p>
-           
 
-        </teleport>
+    <!-- <teleport to="#trashitems">
+        <p v-for="(items, index) in trash" :key="index">
+          {{ items.text }}
+        </p>
+      </teleport> -->
   </div>
 </template>
 
 <script setup>
-import { ref, reactive, computed } from "vue";
+import { ref, reactive, computed, onMounted } from "vue";
 import { useToast } from "vue-toastification";
 import { useTaskStore } from "../../../store/task";
-import { useTrashStore } from "../../../store/trash";
+
 const store = useTaskStore();
-const state = useTrashStore();
+
 const toast = useToast();
 const newtodo = ref("");
 const completedfilter = ref(true);
 const progressfilter = ref(true);
 
 // const trash = reactive([]);
-const progress = computed(() => store.alltasks);
-const completed = computed(() => store.completeds);
-const trash = computed(() => state.trash)
+ const donetodos = computed(() => store.donetodos);
+ const InHold = computed(() => store.InHold);
+ const trash = computed(() => store.trash);
+
 function donetodo() {
   if (newtodo.value) {
-    const todofield = { text: `${newtodo.value}`, done: "false" };
-    store.addtodo(todofield);
+    const todofield = { text: `${newtodo.value}`, done: true };
+// console.log(todofield);
+store.addtodo(todofield)
     newtodo.value = "";
   } else {
     toast.error("Leave a Value");
@@ -117,15 +120,17 @@ function movetodone(index) {
 }
 
 function movetotrash(index) {
-  this.trash.push(store.progress[index]);
-  this.progress.splice(index, 1)
-  toast.warning("Deleted")
+    store.movetotrash(index)
 }
+ 
 </script>
 
 
 <style scoped>
 #donetodos {
   position: relative;
+}
+#trsh{
+  display: none;
 }
 </style>

@@ -20,6 +20,11 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [
         {
+            path: '/',
+            component: TodosComponent,
+        //    name: 'Todos'
+        },
+        {
             path: '/TodosComponent',
             component: TodosComponent,
             name: 'Todos'

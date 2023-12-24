@@ -1,43 +1,78 @@
 import { defineStore } from 'pinia'
 import { useToast } from "vue-toastification";
 const toast = useToast();
-function AlltodosInLocalStorega(progress) {
-    localStorage.setItem('progress', JSON.stringify(progress))
+
+function AlltodosInLocalStorega(todos) {
+    localStorage.setItem('todos', JSON.stringify(todos))
 }
-function doneTodosInLocalStorega(completed) {
-    localStorage.setItem('completed', JSON.stringify(completed))
+function Trashtodos(trash) {
+    localStorage.setItem('trash', JSON.stringify(trash))
 }
+function AllNotesInLocalStorega(notes) {
+    localStorage.setItem('notes', JSON.stringify(notes))
+}
+function Completed(donetodos){
+    localStorage.setItem('donetodos', JSON.stringify(donetodos))
+}
+
 export const useTaskStore = defineStore('task', {
     state: () => {
         return {
-            progress: localStorage.getItem('progress') ? JSON.parse(localStorage.getItem('progress')) : [],
-            completed: localStorage.getItem('completed') ? JSON.parse(localStorage.getItem('completed')) : []
+            todos:localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : [],
+            trash:localStorage.getItem('trash') ? JSON.parse(localStorage.getItem('trash')) : [],
+            notes:localStorage.getItem('notes') ? JSON.parse(localStorage.getItem('notes')) : []
         }
     },
     getters: {
-        alltasks(state) {
-            return state.progress
+        donetodos(state) {
+            return this.todos.filter((todos) => todos.done === true)
+
         },
-        completeds(state) {
-            return state.completed
-        }
+        InHold(state) {
+            return this.todos.filter((todos) => todos.done === false)
+        },
     },
     actions: {
         addtodo(todofield) {
-            this.progress.push({
+            this.todos.push({
                 ...todofield
             })
-            AlltodosInLocalStorega(this.progress)
+           AlltodosInLocalStorega(this.todos)
             toast.success("Add New Todo");
         },
         movetodones(index) {
-            this.progress[index].done = true
-            this.completed.push(this.progress[index])
-            this.progress.splice(index, 1)
-            toast.success("DONE")
-            AlltodosInLocalStorega(this.progress)
-            doneTodosInLocalStorega(this.completed)
+            this.donetodos[index].done = false;
+            AlltodosInLocalStorega(this.todos)
+        },
+        movetotrash(index) {
+            const pushitem = this.donetodos[index]
+            console.log(index);
+             this.todos = this.todos.filter((todos) => todos !== pushitem)
+            this.trash.push({
+                ...pushitem
+             } );
+           Trashtodos(this.trash)
+         AlltodosInLocalStorega(this.todos)
+  
+            
+        },
+        clearTrash(){
+            this.trash = []
+            Trashtodos(this.trash)
+        },
 
+        addnote(newnotes) {
+            this.notes.push({
+                ...newnotes
+            })
+           AllNotesInLocalStorega(this.notes)
+            toast.success("Add New Note")
+        },
+        deletenote(index) {
+            this.trash.push(this.notes[index])
+            this.notes.splice(index, 1)
+          AllNotesInLocalStorega(this.notes)
+            toast.warning("Deleted")
         }
     }
 })

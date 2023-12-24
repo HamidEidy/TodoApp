@@ -2,10 +2,10 @@
     <p id="designlogo">Plan DO</p>
     <div class="routres">
         <div class="routlink row ">
-            <router-link id="tagli" to="/TodosComponent"><button>{{ Todolength.length }}</button>
+            <router-link id="tagli" to="/TodosComponent"><button>{{ todo }}</button>
                 Todos</router-link>
-            <router-link id="tagli" class="col-md-1 col-sm-6 col-xs-6" to="/NotesComponent"><button>{{ notelength.length
-            }}</button>
+            <router-link id="tagli" class="col-md-1 col-sm-6 col-xs-6" to="/NotesComponent"><button>
+            {{note}}</button>
                 Notes</router-link>
             <router-link id="tagli" to="/NewsComponent"><button>5</button>
                 News</router-link>
@@ -20,14 +20,17 @@
 
 
 <script setup>
-import { reactive, onMounted } from 'vue'
+
+ import { computed } from 'vue';
 import { useTaskStore } from '../../store/task';
-import { useNoteStore } from '../../store/note';
-const Newslist = reactive([]);
-const store = useTaskStore();
-const noteStore = useNoteStore();
-const Todolength = store.alltasks
-const notelength = noteStore.notes
+// import { useNoteStore } from '../../store/note';
+// const Newslist = reactive([]);
+ const store = useTaskStore();
+ const todo = computed(()=> store.InHold.length)
+ const note = computed(() => store.notes.length)
+// const noteStore = useNoteStore();
+// const Todolength = store.alltasks
+// const notelength = noteStore.notes
 // onMounted(() => {
 //     axios.get("https://jsonplaceholder.typicode.com/posts?_start=1&_limit=5").then(({ data }) => {
 //         const dataa = Object.entries(data).map(([title, body]) => {
